@@ -1,0 +1,15 @@
+{
+	"selected": "usa",
+	"byKey": {
+		"usa": {
+			"key": "usa",
+			"name": "United States of America",
+			"cities": ["atlanta", "boston"]
+		},
+		"italy": {
+			"key": "italy",
+			"name": "Italy",
+			"cities": ["bergamo", "milano"]
+		}
+	}
+}

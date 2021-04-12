@@ -1,0 +1,33 @@
+{
+	"selected": "atlanta",
+	"byKey": {
+		"atlanta": {
+			"key": "atlanta",
+			"name": "Atlanta",
+			"attributes": {
+				"population": {
+					"2000": 800000,
+					"2020": 900000
+				}
+			}
+		},
+		"bergamo": {
+			"key": "bergamo",
+			"name": "Bergamo",
+			"attributes": {
+				"population": {
+					"2020": 75400
+				}
+			}
+		},
+		"capetown": {
+			"key": "cape town",
+			"name": "Cape Town",
+			"attributes": {
+				"population": {
+					"2000": 1200000
+				}
+			}
+		}
+	}
+}
