@@ -14,7 +14,7 @@ const getAllCountries = (state) => state.countries.byKey;
 	Proto není vhodné pro porovnání použít deep equal.
 */
 const getCityByKey = createSelector(
-	[getAllCities, cityKey => cityKey],
+	[getAllCities, (state, cityKey) => cityKey],
 	(cities, cityKey) => {
 		return cities[cityKey];
 	}
@@ -22,7 +22,7 @@ const getCityByKey = createSelector(
 
 /* ----- */
 const getAllCityKeysForCountry = createSelector(
-	[getAllCountries, countryKey => countryKey],
+	[getAllCountries, (state, countryKey) => countryKey],
 	(countries, countryKey) => {
 		return countries[countryKey].cities;
 	}
@@ -34,12 +34,13 @@ const getAllCityKeysForCountry = createSelector(
  	U standardních knihoven by to znamenalo posílat do těla selektoru i state.
 */
 const getCitiesOverMilionInhabitansIn2020ByCountryKey = createSelector(
-	[getAllCityKeysForCountry],
-	(cityKeys) => {
+	[getAllCityKeysForCountry, state => state],
+	// Nechceme posílat state dovnitř selektoru
+	(cityKey, state) => {
 		let filteredCities = [];
 
 		cityKeys.forEach(cityKey => {
-			const cityData = getCityByKey(cityKey);
+			const cityData = getCityByKey(state, cityKey);
 			if (cityData?.attributes?.population?.["2020"] > 1000000) {
 				filteredCities.push(cityData);
 			}
